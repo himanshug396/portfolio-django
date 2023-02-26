@@ -1,0 +1,111 @@
+{% extends "hitman/base.html" %}
+{% load static %}
+{% block index %}
+ 
+<!-- navigation -->
+<nav class="pages-nav">
+    {% for item in navigation_items %}
+    <div class="pages-nav__item {{item.html_id}}">
+        <a class="link link--page" href="#{{item.html_id}}">{{item.name}}</a>
+    </div>
+    {% endfor %}
+    
+    <!-- <div class="pages-nav__item pages-nav__item--small">
+        <a class="link link--page link--faded" href="#page-blog"> ¿ Freelance ?</a>
+    </div>
+    <div class="pages-nav__item pages-nav__item--small">
+        <a class="link link--page link--faded" href="#page-contact"> ¿ Mentorship ?</a>
+    </div>
+    <br /> -->
+
+    {% for item in social_items %}
+    <span class="pages-nav__social_container">
+        <div class="pages-nav__item pages-nav__item--social">
+            <a class="link link--social link--faded" href="{{item.url}}" target="_blank">
+                <i class="fa fa-{{item.fa_id}}"></i><span class="text-hidden">{{item.name}}</span>
+            </a>
+        </div>
+    </span>
+    {% endfor %}
+</nav>
+<!-- /navigation-->
+
+<!-- pages stack -->
+<div class="pages-stack">
+    <!-- pages -->
+    {% for item in navigation_items %}
+    <div class="page" id="{{item.html_id}}">
+        <div>
+            <div include-html="{% url item.html_id %}"></div>
+        </div>
+    </div>
+    {% endfor %}
+    <!-- /pages -->
+</div>
+<!-- /pages-stack -->
+
+<!-- Menu -->
+<a href="{% url 'website' %}"><img class="menu-logo" src="{% static 'img/logo.png' %}"/></a>
+<button class="menu-button"><span>Menu</span></button>
+ 
+<script>
+    document.documentElement.className = "js";
+    var supportsCssVars = function supportsCssVars() {
+      var e, t = document.createElement("style");
+      return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e;
+    };
+
+    supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
+</script>
+
+<script>
+    $(function() {  
+        let notDesktop = window.matchMedia("only screen and (max-width: 1200px)").matches;    
+        if (notDesktop) {
+            $(".page-game").css({"display": "none"});
+            // var resume_content = "<a class='link link--page' href='{{resume_path}}' target='_blank'>Resume</a>";
+            // $('.page-resume').html(resume_content);
+        }
+     });
+    // Get Main.js for work slider
+    $("a").click(function(){
+        var href = $(this).attr('href');
+        if(href=="#page-work"){
+            // Modernizer JS and classieJS would be same as used for stack navigation
+            $.getScript("{% static 'js/projects/dynamics.min.js' %}");
+            $.getScript("{% static 'js/projects/main.js' %}");
+            $.getScript("{% static 'js/projects/zoom.js' %}");
+        }
+        if(href=="#page-game"){
+            $.getScript("{% static 'js/game/platform-game.js' %}");
+        }
+        if(href=="#page-gallery"){
+            // Modernizer JS and classieJS would be same as used for stack navigation
+            $.getScript("{% static 'js/gallery/imagesloaded.pkgd.min.js' %}");
+            $.getScript("{% static 'js/gallery/masonry.pkgd.min.js' %}");
+            $.getScript("{% static 'js/gallery/main.js' %}");
+            $.getScript("{% static 'js/gallery/gallery.js' %}");
+        }
+        if(href=="#page-contact") {
+            $.getScript("{% static 'js/contact.js' %}");
+        }
+    });
+
+    window.insertContactJS = function(){
+        $.getScript("{% static 'js/contact.js' %}");
+    }
+    window.clearTextArea = function(){
+        $('.contact_options-forms textarea').val('');
+        // document.getElementById('contactForm').submit();
+        // document.getElementById('contactForm').reset();
+    }
+    $(document).on('click', '.gallery__grid__item', function () {
+        // $('#page-gallery').addClass('overflow-hidden');
+    });
+    window.overFlowXHidden = function(){
+        // $('#page-gallery').removeClass('overflow-hidden');
+    }
+</script>
+
+{% endblock %}
+

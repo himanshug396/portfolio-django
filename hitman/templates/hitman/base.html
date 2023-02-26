@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <!-- Meta Tags --> 
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himanshu Gupta</title>
+    <meta name="description" content="Portfolio owned and maintained by Hitman" />
+    <meta name="keywords" content="portfolio, developer, web, mentor, freelancer, combinator, frontend, fullstack, software" />
+    <meta name="author" content="Himanshu Gupta" />
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/favicon4.png' %}" type="image/x-icon">
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <style>
+    :root {
+        --white-x: #ffffff; /* Full White: Nav Links; */
+        --white-2x: #cecece; /* Light White: Nav Links; */
+        --yellow-x: #fc0; /* Main Yellow Color: Buttons, Hovers; */
+        --yellow-2x: #a58507; /* Main Yellow Dark Compliment Color: Button; */
+        --dark-x: #000; /* All Black: Button */
+        --dark-2x: #111; /* Jet Black: Button */
+        --dark-3x: #18191b; /* */
+        --dark-4x: #1d1e21; /* */
+        --dark-5x: #2a2b30; /* Stack Background*/
+        --dark-6x: #4f4f64;  /* Social Links */
+        --blue-x: #5c5edc;
+        --container-padding-md: 7em;
+        --container-padding-tab: 4em;
+        --container-padding-sm: 1em;
+    }
+    </style>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/navigation/navigation.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/navigation/component.css' %}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/nav.css' %}" />
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/gallery.css' %}" /> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}" />
+    <!-- Work & Projects -->
+    <!-- Feather Icons -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/projects/style.css' %}">
+    <!-- Component styles -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/projects/component.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/work.css' %}" />
+    
+    <!--  -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/gallery_2.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/media_60em.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/media_40em.css' %}" />
+
+    <!-- Javascript Files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'js/common/modernizr-custom.js' %}"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LZK034XBGG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-LZK034XBGG');
+    </script>
+    <script>
+    	!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_XwzANABEIiVUFgbzD3iJQl74DRjoa6wwaA161FxDQxh',{api_host:'https://app.posthog.com'})
+    </script>
+</head>
+<body>
+
+
+{% block index %}
+   
+{% endblock %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script src="{% static 'js/common/classie.js' %}"></script>
+<script src="{% static 'js/navigation/main.js' %}"></script>
+<script src="{% static 'js/include_html.js' %}"></script>
+
+</body>  
+</html>

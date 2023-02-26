@@ -1,0 +1,109 @@
+{% load static %}
+
+<header class="bp-header cf">
+	<h1 class="bp-header__title">CONT<span class="color-theme">ACT</span></h1>
+	<p class="bp-header__desc">"A simple hello could lead to million things." — Anonymous</p>
+</header>
+<br />
+
+<div class="contact_page__form contact">
+	<div class="contact_options-container">
+		<div class="contact_options-text">
+			<div class="contact_options-unregistered">
+				<h2 class="contact_unregistered-title">Are you missing me?</h2>
+				<p class="contact_unregistered-text">
+					Feel free to ping me over mail/whatsapp for dicussion or work.
+				</p>
+				<img class="qr_code" src="{% static 'img/qr.png' %}">
+				<p class="contact_unregistered-text">
+					<i class="fa fa-map-marker"></i>  
+					<span>Punjab, India</span>
+				</p>
+				<p class="contact_unregistered-text">
+					<i class="fa fa-phone"></i>
+					<span>(+91) 79863 20674</span>
+				</p>
+				<p class="contact_unregistered-text">
+					<i class="fa fa-envelope"></i>
+					<span>himanshugupta396@gmail.com</span>
+				</p>
+				<div>
+					{% for item in social_items %}
+					<span class="pages-nav__social_container contact-pages-nav__social_container">
+					    <div class="">
+					        <a class="contact-social-icons" href="{{item.url}}" target="_blank">
+					            <i class="fa fa-{{item.fa_id}}">    &nbsp;<span class="social__name">{{item.name}}</span></i>
+					        </a>
+					    </div>
+					</span>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="contact_options-registered">
+				<h2 class="contact_registered-title">Scan - Save - Send</h2>
+				<p class="contact_registered-text">Scan QR, Save contact and Whatsapp if urgent?</p>
+				<img class="qr_code_main"  src="{% static 'img/qr.png' %}">
+			</div>
+		</div>
+
+		<div class="contact_options-forms" id="contact_options-forms">
+			<div class="contact_forms-submit" id="form-div">
+				<h2 class="forms_title">Queries?</h2>
+				<form class="forms_form" action="{% url 'contact_form' %}" method="post" id='contactForm'>
+					{% csrf_token %}
+					<fieldset class="forms_fieldset">
+						<div class="form-group">
+                          	<input type="text" name="name" id="name" class="form-control form-control-sm"  placeholder="Name" required>
+                        </div>
+                       
+                        <div class="form-group">
+                         	<input type="email" name="email" id="email" class="form-control form-control-sm"  placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                          	<input type="tel" name="phone" id="phone" class="form-control form-control-sm"  placeholder="Phone Number">
+                         </div>
+                        <div class="form-group">
+                            <textarea name="question" id="question" class="form-control form-control-sm" placeholder="Write your message here..." rows="3" style="resize: none;" required></textarea>
+                        </div>
+					</fieldset>
+					<button value="Submit" class="forms_buttons-action contact_registered-submit" id="bounceLeft-button" disabled>Send        &nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+				</form>
+			</div>
+			<div class="contact_forms-done" id="form-success-div">
+				<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+				Got you!!
+				<br /><br />
+				<a class="send_another_query" id="bounceRight-button" onclick="clearTextArea()" >Send another Query?</a> 
+			</div>
+		</div>
+	</div>
+</div>
+<div class="phone__footer">
+	<div class="home-footer__container">
+		<p class="contact_unregistered-text">
+			<i class="fa fa-map-marker"></i>  
+			<span>Punjab, India</span>
+		</p>
+		<p class="contact_unregistered-text">
+			<i class="fa fa-phone"></i>
+			<span>(+91) 79863 20674</span>
+		</p>
+		<p class="contact_unregistered-text">
+			<i class="fa fa-envelope"></i>
+			<span>himanshugupta396@gmail.com</span>
+		</p>	
+		{% for item in social_items %}
+		<span class="pages-nav__social_container">
+		    <div class="pages-nav__item pages-nav__item--social">
+		        <a class="link link--social link--faded" href="{{item.url}}" target="_blank">
+		            <i class="fa fa-{{item.fa_id}}"></i><span class="text-hidden">{{item.name}}</span>
+		        </a>
+		    </div>
+		</span>
+		{% endfor %}
+		<span class="footer-love">
+			Made with <i class="fa fa-heart pulse"></i> by Himanshu
+		</span>
+	</div>		
+</div>

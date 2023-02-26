@@ -1,0 +1,32 @@
+<!-- Home Page Content -->
+<div class="container padded_home__container text-justify margin_top">
+	<div class="home-photo__container">
+      <div class="home-photo__frame">
+        <div class="home-photo__frame__in">
+        </div>
+      </div>
+    </div>
+	<div class="home-text__container">
+		{{aboutme|safe}}
+	</div>
+</div>
+
+<div class="home-say_hello_button">
+	<button class="btn btn-primary btn-say-hello" onclick="openPageNoTransition('page-contact'); insertContactJS()">
+		Say Hello!       &nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i>
+	</button>
+</div>
+<div class="home-footer__container">
+	{% for item in social_items %}
+	<span class="pages-nav__social_container">
+	    <div class="pages-nav__item pages-nav__item--social">
+	        <a class="link link--social link--faded" href="{{item.url}}" target="_blank">
+	            <i class="fa fa-{{item.fa_id}}"></i><span class="text-hidden">{{item.name}}</span>
+	        </a>
+	    </div>
+	</span>
+	{% endfor %}
+	<span class="footer-love">
+		Made with <i class="fa fa-heart pulse"></i> by Himanshu
+	</span>
+</div>

@@ -1,0 +1,92 @@
+{% load static %}
+<header class="bp-header cf">
+    <h1 class="bp-header__title">WORK</h1>
+    <p class="bp-header__desc">“It’s going to happen, because I am going to make it happen.” — Harvey Specter</p>
+</header>
+
+<div class="projects__container">
+	<!-- Grid -->
+	<section class="projects__slider">
+		{% for project in projects %}
+			{% if project.rank == 1 %}
+				<div class="projects__slide projects__slide--current" 
+					 data-content="content-{{project.rank}}">
+			{% else %}
+				<div class="projects__slide projects__slide" 
+					 data-content="content-{{project.rank}}">
+			{% endif %}
+			<div class="row projects__slider__row">
+				<div class="col-sm-12 col-md-12 col-lg-6  projects__slide__image">
+					<div class="projects__slide__mover">
+						<div class="projects__zoomer flex-center">
+							<img class="projects__zoomer__image" src="{{project.cover_image_type.image.url}}" alt="{{project.cover_image_type.name}}" />
+							<div class="preview">
+								<img src="{{project.cover_image.url}}" alt="App preview" />
+								<div class="projects__zoomer__area projects__zoomer__area--size-{{project.cover_image_type.size}}"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-12 col-lg-5  projects__slide__text">
+					<h2 class="projects__slide__title">
+						<span>{{project.title}}</span>
+						{{project.position}}
+						{% if project.company != "" %}
+							{% if project.company_url != "" or project.company_url != "#" %}
+								 @ <a  href="{{project.company_url}}" target="_blank">
+							{% endif %}
+						 	 {{project.company}}
+							 {% endif %}
+							</a>
+						<hr />
+					</h2>
+					<p class="projects__slide__description">
+							<b>Brief Description: </b> {{project.brief_description}}
+					</p>
+					<button class="btn btn-primary projects__button--zoom-trigger">
+						<span>Details 
+						      &nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+					</button>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+		<button class="projects__button--zoom display_none"></button>
+		<nav class="projects__slider__nav">
+			<button class="projects__button projects__button--nav-prev"><i class="icon icon--arrow-left"></i><span class="text-hidden">Previous product</span></button>
+			<button class="projects__button projects__button--nav-next"><i class="icon icon--arrow-right"></i><span class="text-hidden">Next product</span></button>
+		</nav>
+	</section>
+	<!-- /slider-->
+
+	<section class="projects__content">
+		{% for project in projects %}
+		<div class="projects__content__item" id="content-{{project.rank}}">
+			<img class="projects__content__item-img rounded-right" src="{{project.full_image.url}}" alt="{{project.title}} Content" />
+			<div class="projects__content__item-inner">
+				<h2>{{project.title}}</h2>
+				<h3>{{project.one_line_description}}</h3>
+				<p>{{project.full_description|safe}}</p>
+			</div>
+		</div>
+		{% endfor %}
+		<button class="projects__button projects__button--close"><i class="icon icon--circle-cross"></i><span class="text-hidden">Close content</span></button>
+	</section>
+</div>
+		
+
+<div class="projectpage__skills_marquee">
+  	<div class="marquee_heading">my Skillset</div>
+	<div class="marquee__item">
+		{% for skill in skills %}
+			{{skill}}
+			<span class="marquee__seperator">   </span>
+		{% endfor %}
+	</div>
+	<div class="marquee__item">
+		{% for skill in skills %}
+			{{skill}}
+			<span class="marquee__seperator">   </span>
+		{% endfor %}
+	</div>
+</div>
